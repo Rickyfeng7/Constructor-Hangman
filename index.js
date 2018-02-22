@@ -5,18 +5,24 @@ var userUsed= []
 var attempt = 10;
 var Wins = 0
 var Loss = 0
+var words = new Word
+var wordBank = ["david", "elena", "jose", "jack", "musab", "javier", "amber", "robinson", "carlo", "farley", "abruham"];
+var randomize = Math.floor(Math.random()*wordBank.length);
+var mix = wordBank[randomize];
+var words = new Word(mix);
 
-	var wordBank = ["david", "elena", "jose", "jack", "musab", "javier", "amber", "robinson", "carlo", "farley", "abruham"];
-
-
-	var randomize = Math.floor(Math.random()*wordBank.length);
-	var mix = wordBank[randomize];
-	var words = new Word(mix);
+function randomWord(){
+	wordBank = ["david", "elena", "jose", "jack", "musab", "javier", "amber", "robinson", "carlo", "farley", "abruham"];
+	randomize = Math.floor(Math.random()*wordBank.length);
+	mix = wordBank[randomize];
+	words = new Word(mix);
 	words.displayLetters();
 	words.displayValue();
-	words.win();
-	words.compareGuess();
 
+}
+
+	words.displayLetters();
+	words.win();
 
 function details(){
 	console.log("\nWin: "+ Wins)
@@ -47,6 +53,7 @@ function startGame(){
             			Wins ++ ;
             			console.log("Congrats")
             			restart();
+            			randomWord()
             		}
             	}else {
             	attempt --;
@@ -54,6 +61,7 @@ function startGame(){
             		Loss++
             		console.log("Nice Try")
             		restart();
+            		randomWord()
             	}
 	  		}
 			startGame()
