@@ -1,25 +1,24 @@
 var Letter = require("./letter.js")
 
-var Word = function(stringValue){
+var Word = function(wordValue){
 
-	this.value = stringValue;
+	this.wordValue = wordValue;
 	this.arrayOfLetters = []
 
 	this.displayValue = function(){
 
 		var displayEmptyString = ""
 
-		for(i=0; i<this.arrayOfLetters.length; i++){
+		for(var i=0; i<this.arrayOfLetters.length; i++){
 
 			displayEmptyString += this.arrayOfLetters[i].display()
 
 		}
-
 		return displayEmptyString
-	}
+	};
 	this.displayLetters = function(){
 
-		var letterString = this.value.split("")
+		var letterString = this.wordValue.split("")
 
 		// console.log(letterString)
 
@@ -30,35 +29,23 @@ var Word = function(stringValue){
 			this.arrayOfLetters.push(letter)
 
 		}
-	}
+	};
 	this.compareGuess = function(guess){
-
 		for(i=0; i<this.arrayOfLetters.length; i++){
 
 			this.arrayOfLetters[i].compareGuess(guess)
 
 		}
+	};
+	this.win = function(solved){
+
+		for(i=0; i< this.arrayOfLetters.length; i++){
+			if(!this.arrayOfLetters[i].guessValue){
+				solved = false;
+			}
+		}
+		return solved;
 	}
 }
 
-var word = new Word("strawberry");
-word.displayLetters();
-word.compareGuess("r");
-word.compareGuess("b");
-word.compareGuess("p")
-console.log(word.displayValue());
-
-// var inquirer = require("inquirer");
-
-// var wordBank = [("D", "a", "v", "i", "d"), ("E", "l", "i", "n", "a"), ("J","o","s","e"), ("J","a","c","k"), ("M","u","s","a","b"), ("J","a","v","i","e","r"), ("A","m","b","e","r")];
-
-
-// inquirer
-//   .prompt([
-//   	{
-//   		type: "passwords",
-//   		name: wordBank,
-//   	}
-//   	]);
-
-// module.exports = 
+module.exports = Word

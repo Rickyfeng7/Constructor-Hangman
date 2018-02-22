@@ -7,7 +7,7 @@ var Letter = function(view){
 			return view
 		}
 		else{
-			return "_"
+			return "_" + " "
 		}
 	};
 	
@@ -20,7 +20,6 @@ var Letter = function(view){
 			return false
 		}
 	}
-
 }
 
 module.exports = Letter
