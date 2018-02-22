@@ -5,11 +5,6 @@ var userUsed= []
 var attempt = 10;
 var Wins = 0
 var Loss = 0
-var words = new Word
-var wordBank = ["david", "elena", "jose", "jack", "musab", "javier", "amber", "robinson", "carlo", "farley", "abruham"];
-var randomize = Math.floor(Math.random()*wordBank.length);
-var mix = wordBank[randomize];
-var words = new Word(mix);
 
 function randomWord(){
 	wordBank = ["david", "elena", "jose", "jack", "musab", "javier", "amber", "robinson", "carlo", "farley", "abruham"];
@@ -20,8 +15,8 @@ function randomWord(){
 	words.displayValue();
 
 }
+randomWord();
 
-	words.displayLetters();
 	words.win();
 
 function details(){
@@ -73,7 +68,6 @@ function restart(){
 	wordView = false
 	userUsed= []
 	attempt = 10;
-	words = new Word(mix);
 	words.displayLetters();
 	words.displayValue();
 
