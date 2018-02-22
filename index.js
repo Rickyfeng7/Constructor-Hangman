@@ -70,7 +70,7 @@ function startGame(){
 	}
 console.log("\nHint: It's a name")
 function restart(){
-	success = false
+	wordView = false
 	userUsed= []
 	attempt = 10;
 	words = new Word(mix);

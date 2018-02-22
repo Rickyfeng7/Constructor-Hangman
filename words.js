@@ -31,15 +31,15 @@ var Word = function(wordValue){
 		}
 	};
 	this.compareGuess = function(guess){
-		var success = false
+		var wordView = false
 		for(i=0; i<this.arrayOfLetters.length; i++){
 
 			var check = this.arrayOfLetters[i].compareValue(guess)
 			if(check){
-				success = true
+				wordView = true
 			}
 		}
-		return success
+		return wordView
 	};
 	this.win = function(){
 		var solved = true;
