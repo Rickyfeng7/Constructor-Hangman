@@ -32,6 +32,7 @@ function details(){
 	console.log(words.displayValue());
 	
 }
+
 function startGame(){
 	details();
 	inquirer.prompt([
@@ -67,7 +68,7 @@ function startGame(){
 			startGame()
 	  	})
 	}
-
+console.log("\nHint: It's a name")
 function restart(){
 	success = false
 	userUsed= []
