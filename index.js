@@ -17,15 +17,12 @@ function randomWord(){
 }
 randomWord();
 
-	words.win();
-
 function details(){
 	console.log("\nWin: "+ Wins)
 	console.log("Loss: " + Loss)
 	console.log(attempt)
 	console.log(userUsed)
 	console.log(words.displayValue());
-	
 }
 
 function startGame(){

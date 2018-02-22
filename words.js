@@ -20,8 +20,6 @@ var Word = function(wordValue){
 
 		var letterString = this.wordValue.split("")
 
-		// console.log(letterString)
-
 		for( i = 0; i < letterString.length; i++){
 
 			var letter = new Letter(letterString[i])
