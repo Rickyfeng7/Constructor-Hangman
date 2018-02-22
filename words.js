@@ -9,7 +9,7 @@ var Word = function(wordValue){
 
 		var displayEmptyString = ""
 
-		for(var i=0; i<this.arrayOfLetters.length; i++){
+		for(i=0; i<this.arrayOfLetters.length; i++){
 
 			displayEmptyString += this.arrayOfLetters[i].display()
 
@@ -31,14 +31,18 @@ var Word = function(wordValue){
 		}
 	};
 	this.compareGuess = function(guess){
+		var success = false
 		for(i=0; i<this.arrayOfLetters.length; i++){
 
-			this.arrayOfLetters[i].compareGuess(guess)
-
+			var check = this.arrayOfLetters[i].compareValue(guess)
+			if(check){
+				success = true
+			}
 		}
+		return success
 	};
-	this.win = function(solved){
-
+	this.win = function(){
+		var solved = true;
 		for(i=0; i< this.arrayOfLetters.length; i++){
 			if(!this.arrayOfLetters[i].guessValue){
 				solved = false;

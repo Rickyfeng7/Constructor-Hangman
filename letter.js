@@ -11,7 +11,7 @@ var Letter = function(view){
 		}
 	};
 	
-	this.compareGuess = function(guess){
+	this.compareValue = function(guess){
 		if(this.view === guess){
 			this.guessValue = true;
 			return true

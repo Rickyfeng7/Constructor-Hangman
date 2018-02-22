@@ -5,7 +5,7 @@ var userUsed= []
 var attempt = 10;
 var Wins = 0
 var Loss = 0
-var points=0
+
 	var wordBank = ["david", "elena", "jose", "jack", "musab", "javier", "amber", "robinson", "carlo", "farley", "abruham"];
 
 
@@ -13,26 +13,21 @@ var points=0
 	var mix = wordBank[randomize];
 	var words = new Word(mix);
 	words.displayLetters();
-	words.compareGuess("");
-	// console.log(words.displayValue());
+	words.displayValue();
+	words.win();
+	words.compareGuess();
 
 
 function details(){
-	console.log("Win: "+ Wins)
+	console.log("\nWin: "+ Wins)
 	console.log("Loss: " + Loss)
 	console.log(attempt)
 	console.log(userUsed)
 	console.log(words.displayValue());
 	
 }
-// function points(){
 
-// 	for(i=0; i<this.arrayOfLetters.length; i++){
-// 		points ++;
-// 		if()
-// 	}
-// }
-function guessing(){
+function startGame(){
 	details();
 	inquirer.prompt([
 		{
@@ -47,15 +42,23 @@ function guessing(){
 				words.compareGuess(letter)
 				userUsed.push(letter)
             }
-            if (words.win(solved)) {
-            	win ++
-            }
-     //        else {
-     //        	Loss--;
-	  		// }
-			guessing()
+            var correct = words.compareGuess(letter)
+            	if(correct){
+            		if(words.win()){
+            			Wins ++ ;
+            			console.log("Congrats")
+            			startGame();
+            		}
+            	}else {
+            	attempt --;
+            	if(attempt === 0){
+            		Loss++
+            		return  ;
+            	}
+	  		}
+			startGame()
 	  	})
 	}
 
-guessing();
+startGame();
 
