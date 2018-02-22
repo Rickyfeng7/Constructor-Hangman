@@ -26,7 +26,6 @@ function details(){
 	console.log(words.displayValue());
 	
 }
-
 function startGame(){
 	details();
 	inquirer.prompt([
@@ -47,18 +46,28 @@ function startGame(){
             		if(words.win()){
             			Wins ++ ;
             			console.log("Congrats")
-            			startGame();
+            			restart();
             		}
             	}else {
             	attempt --;
             	if(attempt === 0){
             		Loss++
-            		return  ;
+            		console.log("Nice Try")
+            		restart();
             	}
 	  		}
 			startGame()
 	  	})
 	}
 
-startGame();
+function restart(){
+	success = false
+	userUsed= []
+	attempt = 10;
+	words = new Word(mix);
+	words.displayLetters();
+	words.displayValue();
 
+}
+
+startGame();
