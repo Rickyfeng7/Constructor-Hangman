@@ -36,9 +36,10 @@ function startGame(){
 	  	]).then(function(response){
 
 	  		var letter = response.letter.toLowerCase();
-        	if ((/^[a-zA-Z]/.test(letter)) && (letter.length===1)) {
-				words.compareGuess(letter)
 				userUsed.push(letter)
+        	if ((/^[a-zA-Z]/.test(letter)) && (letter.length===1)){
+				words.compareGuess(letter)
+
             }
             var correct = words.compareGuess(letter)
             	if(correct){
