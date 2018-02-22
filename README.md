@@ -1,11 +1,11 @@
 # Constructor-Hangman
 There are 3 javascrpt files.
   Letter.js
-    -->2 constructors, 1 overall function called letter
+    -2 constructors, 1 overall function called letter
       - first constructor(display) checks and hides the arguement
       - second constuctor(compareValue) checks the arguement is true or false
   words.js
-    -->4 constructors, 1 overall function called words
+    -4 constructors, 1 overall function called words
       - first constructor looks through the array and called the display constructor to see if tis true or false
       - second constructor splits the word by the "blank" and then pushes it to the empty array
       - thrid constructor compares the guess by assiging it a true or false true of false
